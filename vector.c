@@ -1,11 +1,5 @@
-#include <stddef.h>
+#include "vector.h"
 #include <stdlib.h>
-
-struct Vector {
-    size_t length;
-    size_t capacity;
-    void **values;
-};
 
 /**
  * \brief Grows a vector by a factor
