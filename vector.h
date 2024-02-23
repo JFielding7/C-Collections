@@ -1,12 +1,15 @@
 #ifndef VECTOR_IMPL__$
 #define VECTOR_IMPL__$
 #include <stddef.h>
+#include <stdbool.h>
 
 struct Vector {
     size_t length;
     size_t capacity;
     void **values;
 };
+
+extern struct Vector new_vec();
 
 extern void grow(struct Vector *vector, size_t by);
 
@@ -27,5 +30,9 @@ extern void set(const struct Vector *vector, void *value, size_t index);
 extern void insert(struct Vector *vector, void *value, size_t index);
 
 extern void delete(struct Vector *vector, size_t index);
+
+extern struct Vector slice(struct Vector *vector, size_t from_index, size_t to_index);
+
+extern bool is_empty(struct Vector *vector);
 
 #endif

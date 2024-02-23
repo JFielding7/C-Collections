@@ -1,5 +1,12 @@
 #include "vector.h"
 #include <stdlib.h>
+#include <stdbool.h>
+
+#define DEFAULT_CAPACITY 16
+
+struct Vector new_vec() {
+    return (struct Vector) {0, DEFAULT_CAPACITY, malloc(DEFAULT_CAPACITY * sizeof (void*))};
+}
 
 /**
  * \brief Grows a vector by a factor
@@ -71,4 +78,14 @@ void delete(struct Vector *vector, const size_t index) {
     vector->length--;
 }
 
+struct Vector slice(struct Vector *vector, size_t from_index, size_t to_index) {
+    struct Vector sliced = new_vec();
+    for (size_t i = from_index; i < to_index; i++) {
+        add(&sliced, vector->values[i]);
+    }
+    return sliced;
+}
 
+bool is_empty(struct Vector *vector) {
+    return vector->length == 0;
+}
