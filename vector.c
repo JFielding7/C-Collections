@@ -89,3 +89,12 @@ struct Vector slice(struct Vector *vector, size_t from_index, size_t to_index) {
 bool is_empty(struct Vector *vector) {
     return vector->length == 0;
 }
+
+void clear(struct Vector *vector) {
+    vector->length = 0;
+}
+
+void trim_to_size(struct Vector *vector) {
+    vector->capacity = vector->length;
+    realloc(vector->values, vector->length);
+}

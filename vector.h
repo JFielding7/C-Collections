@@ -35,4 +35,8 @@ extern struct Vector slice(struct Vector *vector, size_t from_index, size_t to_i
 
 extern bool is_empty(struct Vector *vector);
 
+extern void clear(struct Vector *vector);
+
+extern void trim_to_size(struct Vector *vector);
+
 #endif
