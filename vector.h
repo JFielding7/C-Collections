@@ -24,4 +24,8 @@ extern void *get(const struct Vector *vector, size_t index);
 
 extern void set(const struct Vector *vector, void *value, size_t index);
 
+extern void insert(struct Vector *vector, void *value, size_t index);
+
+extern void delete(struct Vector *vector, size_t index);
+
 #endif

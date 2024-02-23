@@ -53,5 +53,22 @@ void set(const struct Vector *vector, void *value, const size_t index) {
     vector->values[index] = value;
 }
 
+void insert(struct Vector *vector, void *value, const size_t index) {
+    if (vector->length == vector->capacity) {
+        grow(vector, vector->capacity);
+    }
+    for (size_t i = vector->length; i > index; i--) {
+        vector->values[i] = vector->values[i - 1];
+    }
+    vector->values[index] = value;
+    vector->length++;
+}
+
+void delete(struct Vector *vector, const size_t index) {
+    for (size_t i = index; i < vector->length - 1; i++) {
+        vector->values[i] = vector->values[i + 1];
+    }
+    vector->length--;
+}
 
 
